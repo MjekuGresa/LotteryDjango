@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Lottery</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+   
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'ticket/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'ticket/css/light-bootstrap-dashboard.css' %}">
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        {% load static %}
+        <div class="sidebar" data-image="{% static 'ticket/img/sidebar-5.jpg' %}" data-color="blue">
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a class="simple-text">
+                        Lottery
+                    </a>
+                </div>
+                <ul class="nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'ticket:index' %}">
+                            <i class="nc-icon nc-chart-pie-35"></i>
+                            <p>NEW TICKET</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{% url 'ticket:all' %}">
+                            <i class="nc-icon nc-notes"></i>
+                            <p>MY TICKETS</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{% url 'user:edit' %}">
+                            <i class="nc-icon nc-circle-09"></i>
+                            <p>MY Profile</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="{% url 'ticket:notify' %}">
+                            <i class="nc-icon nc-bell-55"></i>
+                            <p>Notifications</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="main-panel">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg " color-on-scroll="500">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'user:logout' %}">
+                                    <span class="no-icon">Log out</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">CHANGE PASSWORD</h4>
+                            </div>
+                            <div class="card-body">
+                                <form action="{% url 'user:update' %}" method="POST">
+                                    {% csrf_token %}
+                                        <ul>
+                                        {% for message in messages %}
+                                        <li{% if message.tags %} class="list-group-item list-group-item-dangert"{% endif %}>{{ message }}</li>
+                                        {% endfor %}
+                                        </ul>
+                                    <div class="row"></div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Password</label>
+                                                <input type="password" class="form-control" name='password' placeholder="Type your new password">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Confirm Password</label>
+                                                <input type="password" class="form-control" name="confpassword" placeholder="Re-type your new password">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-info btn-fill pull-right">Submit</button>
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card card-user">
+                            <div class="card-image">
+                                <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="...">
+                            </div>
+                            <div class="card-body">
+                                <div class="author">
+                                    <a href="#">
+                                        <img class="avatar border-gray" src="{% static 'user/img/default-avatar.png' %}">
+                                        <h5 class="title">{{user.first_name}} {{user.last_name}}</h5>
+                                    </a>
+                                    <p class="description">Personal number: {{ user.personal_number}}</p>
+                                    <p class="description">Email: {{ user.email}}</p>
+                                </div>
+                            </div>                               
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </div>
+</body>
+
+{% load static %}
+<script src="{% static 'ticket/js/core/jquery.3.2.1.min.js' %}"></script>
+<script src="{% static 'ticket/js/core/popper.min.js' %}"></script>
+<script src="{% static 'ticket/js/core/bootstrap.min.js' %}"></script>
+<script src="{% static 'ticket/js/light-bootstrap-dashboard.js' %}"></script>
+
+</html>

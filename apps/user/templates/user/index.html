@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Lottary</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+  {% load static %}
+  <!-- The line above tells Django to be ready to listen for static files -->
+  <link rel="stylesheet" href="{% static 'user/lib/bootstrap/css/bootstrap.min.css' %}">    
+  
+  <link rel="stylesheet" href="{% static 'user/lib/font-awesome/css/font-awesome.min.css' %}">  
+  <link rel="stylesheet" href="{% static 'user/lib/animate/animate.min.css' %}">  
+  <link rel="stylesheet" href="{% static 'user/lib/venobox/venobox.css' %}">  
+  <link rel="stylesheet" href="{% static 'user/lib/owlcarousel/assets/owl.carousel.min.css' %}">  
+ 
+  <link rel="stylesheet" href="{% static 'user/css/style.css' %}">  
+</head>
+
+<body>
+  <header id="header">
+    <div class="container">
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="#intro">Home</a></li>
+          <li><a href="#about">Rules</a></li>
+          <li><a href="#winning">Winning numbers</a></li>
+          <li><a href="#footer">Contact</a></li>
+          <li>
+            <a href="{% url 'user:login_page' %}">LogIn</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="intro">
+    <div class="intro-container wow fadeIn">
+      <h1 class="mb-4 pb-0">PLAY LOTTO NOW<br><span>GAME ENDS IN</h1>
+      <p class="mb-4 pb-0">0 Days : 10 Hours : 46 Mins</p>
+      <a href="{% url 'user:register_page' %}" class="about-btn scrollto">Register</a>
+    </div>
+  </section>
+
+  <main id="main">
+    <section id="about">
+      <div class="container">
+          <div class="col-lg-6">
+            <h2>All you need to know</h2>
+            <p>
+              Saturday nights changed forever when Lotto was introduced back in 1994. 
+              Since then, it’s become the nation’s favourite game – played by millions. But how to play?</p>
+          </div>
+      </div>
+    </section>
+
+    <section id="winning" class="section-with-bg">
+      <div class="container wow fadeInUp">
+        <div class="section-header">
+          <h2>What can you win?</h2>
+        </div>
+        <div class="tab-content row justify-content-center">
+          <div role="tabpanel" class="col-lg-9 tab-pane fade show active">
+            <div class="row schedule-item">
+              <div class="col-md-2"><time>6 NUMBERS</time></div>
+              <div class="col-md-10">
+                <h4>Jackpot</h4>
+                <p>$10000</p>
+              </div>
+            </div>
+
+            <div class="row schedule-item">
+              <div class="col-md-2"><time>5 NUMBERS</time></div>
+              <div class="col-md-10">
+                <h4>Jackpot</h4>
+                <p>$10000</p>
+              </div>
+            </div>
+
+            <div class="row schedule-item">
+              <div class="col-md-2"><time>4 NUMBERS</time></div>
+              <div class="col-md-10">
+                <h4>Jackpot</h4>
+                <p>$10000</p>
+              </div>
+            </div>
+
+            <div class="row schedule-item">
+              <div class="col-md-2"><time>3 NUMBERS</time></div>
+              <div class="col-md-10">
+                <h4>Jackpot</h4>
+                <p>$10000</p>
+              </div>
+            </div>
+
+            <div class="row schedule-item">
+              <div class="col-md-2"><time>2 NUMBERS</time></div>
+              <div class="col-md-10">
+                <h4>Jackpot</h4>
+                <p>$10000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="wow fadeInUp">
+      <div class="container">
+        <div class="section-header">
+          <h2>F.A.Q </h2>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-9">
+              <ul id="faq-list">
+                <li>
+                  <a data-toggle="collapse" class="collapsed" href="#faq1">How to open an account?<i class="fa fa-minus-circle"></i></a>
+                  <div id="faq1" class="collapse" data-parent="#faq-list">
+                    <p>
+                      XX
+                    </p>
+                  </div>
+                </li>
+      
+                <li>
+                  <a data-toggle="collapse" href="#faq2" class="collapsed">How many tickets can I play? <i class="fa fa-minus-circle"></i></a>
+                  <div id="faq2" class="collapse" data-parent="#faq-list">
+                    <p>
+                      XX
+                    </p>
+                  </div>
+                </li>
+      
+                <li>
+                  <a data-toggle="collapse" href="#faq3" class="collapsed">How to check if I have won? <i class="fa fa-minus-circle"></i></a>
+                  <div id="faq3" class="collapse" data-parent="#faq-list">
+                    <p>
+                      XX
+                    </p>
+                  </div>
+                </li>
+              </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>Contact Us</h4>
+            <p>
+              Pristina, 10000<br>
+              Kosovo <br>
+              <strong>Phone:</strong> +383 49 11 22 33<br>
+              <strong>Email:</strong> lottery@kosovo.com<br>
+            </p>
+            <div class="social-links">
+              <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+              <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+              <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+              <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+  {% load static %}
+  <!-- The line above tells Django to be ready to listen for static files -->
+   <script src="{% static 'user/lib/jquery/jquery.min.js' %}"></script>
+   <script src="{% static 'user/lib/jquery/jquery-migrate.min.js' %}"></script>
+   <script src="{% static 'user/lib/lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+   <script src="{% static 'user/lib/easing/easing.min.js' %}"></script>
+   <script src="{% static 'user/lib/superfish/hoverIntent.js' %}"></script>
+   <script src="{% static 'user/lib/superfish/superfish.min.js' %}"></script>
+   <script src="{% static 'user/lib/wow/wow.min.js' %}"></script>
+   <script src="{% static 'user/lib/venobox/venobox.min.js' %}"></script>
+   <script src="{% static 'user/lib/owlcarousel/owl.carousel.min.js' %}"></script>
+   <script src="{% static 'user/js/main.js' %}"></script>
+   
+</body>
+</html>
