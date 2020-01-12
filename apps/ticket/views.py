@@ -16,7 +16,7 @@ def drawDay():
     draw_day = False
     now = datetime.datetime.now()
     day, hour = now.weekday(), now.hour
-    if day == 6 and hour in range(10,15):
+    if day == 6 and hour in range(18,25):
         draw_day = True
     return draw_day
 
