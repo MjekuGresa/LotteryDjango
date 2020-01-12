@@ -51,22 +51,17 @@ def notify(request):
     for ticket in Ticket.objects.filter(created_at__range=(week_start,week_end)):
         tickets_weekly_char += ticket.numbers_selected + ','
     
-    #bad_chars = ["'"] 
-    #for i in bad_chars : 
-    #tickets_weekly_char = tickets_weekly_char.replace("'", '')
     tickets_weekly = ast.literal_eval(tickets_weekly_char.replace("'",''))  
     if drawDay():
-        #draw_numbers = winning_nums()
-        guessed_numbers = winning_ticket([1,3,5,7,9,11,13], tickets_weekly)
+        guessed_numbers = winning_ticket(winning_nums(), tickets_weekly)
     else:
-        #draw_numbers = []
         guessed_numbers = []
 
     context = {
         'user': User.objects.get(id=request.session['user_id']),
         'tickets_weekly': Ticket.objects.filter(created_at__range=(week_start,week_end)),
         'draw_day':  drawDay(),
-        'draw_numbers': [1,3,5,7,9,11,13],
+        'draw_numbers': winning_nums(),
         'guessed_numbers': guessed_numbers
     }
     if 'user_id' not in request.session:
