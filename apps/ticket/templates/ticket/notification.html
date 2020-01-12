@@ -80,21 +80,28 @@
                                     {% for char in draw_numbers %}
                                         <span class="badge badge-pill badge-secondary">{{ char }}</span>
                                     {% endfor %}
+                                    <div class="card-body ">
+                                        <div id="chartHours" class="ct-chart">
+                                            {% for ticket in tickets_weekly %}
+                                                <!-- {% if user.id == ticket.creator.id %} -->
+                                                    <h6 class="card-subtitle mb-2 text-muted" style="margin-top:5px;">{{ticket.created_at|date:"d M Y"}}</h6>
+                                                    <p class="card-text">
+                                                        {{ ticket.numbers_selected }}
+                                                        <!--<span class="badge badge-pill badge-secondary">{{ char }}</span> -->
+                                                    </p>
+                                                    <p class="card-text">
+                                                        Guessed numbers:
+                                                        <span class="badge badge-pill badge-secondary">{{ guessed_numbers }}</span> 
+                                                    </p>
+                                                <!-- {% endif %} -->
+                                            {% endfor %}
+                                        </div>
+                                    </div>
                                 {% else %}
-                                <p class="card-category">Until Friday draw you can <a href="{% url 'ticket:index' %}" style="text-decoration:underline">play</a> other tickets!</p>
+                                <p class="card-category">Until Friday 8:00 PM draw you can <a href="{% url 'ticket:index' %}" style="text-decoration:underline">play</a> other tickets!</p>
                                 {% endif %}
                             </div>
-                            <div class="card-body ">
-                                <div id="chartHours" class="ct-chart">
-                                    {% for ticket in tickets %}
-                                        {% if ticket.numbers_selected|cut:"'"|cut:" " == draw_numbers_compare|cut:" "%}
-                                            <p>You have won! Winning numbers are: {{ ticket.numbers_selected|cut:"["|cut:"]"|cut:","|cut:"'"|slice:" " }}</p>
-                                        {% else %}
-                                            <p>Good luck next week! Your ticket numbers are: {{ ticket.numbers_selected|cut:"["|cut:"]"|cut:","|cut:"'"|slice:" " }}</p>
-                                        {% endif %}
-                                    {% endfor %}
-                                </div>
-                            </div> 
+                             
                         </div>
                     </div>
                 </div>
